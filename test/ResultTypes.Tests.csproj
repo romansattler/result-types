@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\src\ResultTypes.Extensions.AspNetCore\ResultTypes.Extensions.AspNetCore.csproj" />
     <ProjectReference Include="..\src\ResultTypes\ResultTypes.csproj" />
   </ItemGroup>
 
