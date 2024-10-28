@@ -1,0 +1,28 @@
+﻿#nullable enable
+ResultTypes.Result
+ResultTypes.Result<TValue>
+ResultTypes.Result<TValue>.AssertSuccess() -> void
+ResultTypes.Result<TValue>.Exception.get -> System.Exception?
+ResultTypes.Result<TValue>.Id.get -> object?
+ResultTypes.Result<TValue>.IsSuccess.get -> bool
+ResultTypes.Result<TValue>.Status.get -> ResultTypes.ResultStatus
+ResultTypes.Result<TValue>.ValidationErrors.get -> System.ComponentModel.DataAnnotations.ValidationResult![]?
+ResultTypes.Result<TValue>.Value.get -> TValue?
+ResultTypes.ResultStatus
+ResultTypes.ResultStatus.Created = 1 -> ResultTypes.ResultStatus
+ResultTypes.ResultStatus.Error = 4 -> ResultTypes.ResultStatus
+ResultTypes.ResultStatus.Invalid = 2 -> ResultTypes.ResultStatus
+ResultTypes.ResultStatus.NotFound = 3 -> ResultTypes.ResultStatus
+ResultTypes.ResultStatus.Ok = 0 -> ResultTypes.ResultStatus
+ResultTypes.Unit
+static ResultTypes.Result.Created<TId, TValue>(TId id, TValue value) -> ResultTypes.Result<TValue>!
+static ResultTypes.Result.Created<TId>(TId id) -> ResultTypes.Result!
+static ResultTypes.Result.Error(System.Exception! exception) -> ResultTypes.Result!
+static ResultTypes.Result.Invalid(params System.ComponentModel.DataAnnotations.ValidationResult![]! validationErrors) -> ResultTypes.Result!
+static ResultTypes.Result.NoContent() -> ResultTypes.Result!
+static ResultTypes.Result.NotFound() -> ResultTypes.Result!
+static ResultTypes.Result.Ok<TValue>(TValue value) -> ResultTypes.Result<TValue>!
+static ResultTypes.Result<TValue>.FromEmptyResult(ResultTypes.Result! result) -> ResultTypes.Result<TValue?>!
+static ResultTypes.Result<TValue>.implicit operator ResultTypes.Result<TValue>!(TValue value) -> ResultTypes.Result<TValue>!
+static ResultTypes.Result<TValue>.implicit operator ResultTypes.Result<TValue?>!(ResultTypes.Result! result) -> ResultTypes.Result<TValue?>!
+static ResultTypes.Unit.Instance.get -> ResultTypes.Unit!

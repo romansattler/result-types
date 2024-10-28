@@ -1,0 +1,8 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>ResultTypes</AssemblyName>
+    <RootNamespace>ResultTypes</RootNamespace>
+  </PropertyGroup>
+
+</Project>

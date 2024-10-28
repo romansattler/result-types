@@ -1,0 +1,27 @@
+﻿#nullable enable
+ResultTypes.Extensions.AspNetCore.ResultType<TSuccessResult, TValue>
+ResultTypes.Extensions.AspNetCore.ResultType<TSuccessResult, TValue>.ExecuteAsync(Microsoft.AspNetCore.Http.HttpContext! httpContext) -> System.Threading.Tasks.Task!
+ResultTypes.Extensions.AspNetCore.ResultType<TSuccessResult, TValue>.ResultType(ResultTypes.Result<TValue>! result) -> void
+ResultTypes.Extensions.AspNetCore.ResultType<TSuccessResult, TValue>.StatusCode.get -> int?
+ResultTypes.Extensions.AspNetCore.ResultType<TSuccessResult, TValue>.Value.get -> TValue?
+ResultTypes.Extensions.AspNetCore.ResultType<TSuccessResult>
+ResultTypes.Extensions.AspNetCore.ResultType<TSuccessResult>.ResultType(ResultTypes.Result<ResultTypes.Unit!>! result) -> void
+ResultTypes.Extensions.AspNetCore.ResultTypes
+ResultTypes.Extensions.AspNetCore.ResultTypes.Collection<TValue>
+ResultTypes.Extensions.AspNetCore.ResultTypes.Collection<TValue>.Collection(ResultTypes.Result<System.Collections.Generic.IEnumerable<TValue>!>! result) -> void
+ResultTypes.Extensions.AspNetCore.ResultTypes.Created
+ResultTypes.Extensions.AspNetCore.ResultTypes.Created.Created(ResultTypes.Result<ResultTypes.Unit!>! result) -> void
+ResultTypes.Extensions.AspNetCore.ResultTypes.Created<TValue>
+ResultTypes.Extensions.AspNetCore.ResultTypes.Created<TValue>.Created(ResultTypes.Result<TValue>! result) -> void
+ResultTypes.Extensions.AspNetCore.ResultTypes.NoContent
+ResultTypes.Extensions.AspNetCore.ResultTypes.NoContent.NoContent(ResultTypes.Result<ResultTypes.Unit!>! result) -> void
+ResultTypes.Extensions.AspNetCore.ResultTypes.Ok
+ResultTypes.Extensions.AspNetCore.ResultTypes.Ok.Ok(ResultTypes.Result<ResultTypes.Unit!>! result) -> void
+ResultTypes.Extensions.AspNetCore.ResultTypes.Ok<TValue>
+ResultTypes.Extensions.AspNetCore.ResultTypes.Ok<TValue>.Ok(ResultTypes.Result<TValue>! result) -> void
+static ResultTypes.Extensions.AspNetCore.ResultTypes.Collection<TValue>.implicit operator ResultTypes.Extensions.AspNetCore.ResultTypes.Collection<TValue>!(ResultTypes.Result<System.Collections.Generic.IEnumerable<TValue>!>! result) -> ResultTypes.Extensions.AspNetCore.ResultTypes.Collection<TValue>!
+static ResultTypes.Extensions.AspNetCore.ResultTypes.Created.implicit operator ResultTypes.Extensions.AspNetCore.ResultTypes.Created!(ResultTypes.Result<ResultTypes.Unit!>! result) -> ResultTypes.Extensions.AspNetCore.ResultTypes.Created!
+static ResultTypes.Extensions.AspNetCore.ResultTypes.Created<TValue>.implicit operator ResultTypes.Extensions.AspNetCore.ResultTypes.Created<TValue>!(ResultTypes.Result<TValue>! result) -> ResultTypes.Extensions.AspNetCore.ResultTypes.Created<TValue>!
+static ResultTypes.Extensions.AspNetCore.ResultTypes.NoContent.implicit operator ResultTypes.Extensions.AspNetCore.ResultTypes.NoContent!(ResultTypes.Result<ResultTypes.Unit!>! result) -> ResultTypes.Extensions.AspNetCore.ResultTypes.NoContent!
+static ResultTypes.Extensions.AspNetCore.ResultTypes.Ok.implicit operator ResultTypes.Extensions.AspNetCore.ResultTypes.Ok!(ResultTypes.Result<ResultTypes.Unit!>! result) -> ResultTypes.Extensions.AspNetCore.ResultTypes.Ok!
+static ResultTypes.Extensions.AspNetCore.ResultTypes.Ok<TValue>.implicit operator ResultTypes.Extensions.AspNetCore.ResultTypes.Ok<TValue>!(ResultTypes.Result<TValue>! result) -> ResultTypes.Extensions.AspNetCore.ResultTypes.Ok<TValue>!
