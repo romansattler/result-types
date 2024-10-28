@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResultTypes.Extensions.AspN
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResultTypes.Extensions.MediatR", "src\ResultTypes.Extensions.MediatR\ResultTypes.Extensions.MediatR.csproj", "{F32295C0-CDA5-43F1-8E28-54ECA8820395}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResultTypes.Tests", "test\ResultTypes.Tests.csproj", "{AD0DFBF4-B46D-43F0-9114-8958FC20CD62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{F32295C0-CDA5-43F1-8E28-54ECA8820395}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F32295C0-CDA5-43F1-8E28-54ECA8820395}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F32295C0-CDA5-43F1-8E28-54ECA8820395}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD0DFBF4-B46D-43F0-9114-8958FC20CD62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD0DFBF4-B46D-43F0-9114-8958FC20CD62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD0DFBF4-B46D-43F0-9114-8958FC20CD62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD0DFBF4-B46D-43F0-9114-8958FC20CD62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,5 +54,6 @@ Global
 		{B5894D3C-904D-41CD-AACF-4924C969F01C} = {112277EA-A064-4DB4-B88F-6ABEE159E5A3}
 		{1C6CD6DB-2BD7-48D0-9FBF-2B2F5E31087E} = {112277EA-A064-4DB4-B88F-6ABEE159E5A3}
 		{F32295C0-CDA5-43F1-8E28-54ECA8820395} = {112277EA-A064-4DB4-B88F-6ABEE159E5A3}
+		{AD0DFBF4-B46D-43F0-9114-8958FC20CD62} = {F2B6314B-6E4C-4AAB-B678-E48002490E2D}
 	EndGlobalSection
 EndGlobal
