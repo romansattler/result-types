@@ -1,0 +1,10 @@
+<Project>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <GlobalPackageReference Include="Roslynator.Analyzers" Version="4.12.8" />
+    <GlobalPackageReference Include="Roslynator.CodeAnalysis.Analyzers" Version="4.12.8" />
+    <GlobalPackageReference Include="Roslynator.Formatting.Analyzers" Version="4.12.8" />
+    <GlobalPackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="3.3.4" />
+  </ItemGroup>
+</Project>
