@@ -6,7 +6,7 @@ namespace ResultTypes.Extensions.MediatR;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddResultPipelineBehavior(this IServiceCollection services)
+    public static IServiceCollection AddResultMediatRExceptionHandler(this IServiceCollection services)
     {
         services.TryAddEnumerable(ServiceDescriptor.Transient(typeof(IRequestExceptionHandler<,,>), typeof(ResultExceptionHandler<,,>)));
 

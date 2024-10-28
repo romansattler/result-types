@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\src\ResultTypes.Extensions.AspNetCore\ResultTypes.Extensions.AspNetCore.csproj" />
+    <ProjectReference Include="..\src\ResultTypes.Extensions.MediatR\ResultTypes.Extensions.MediatR.csproj" />
     <ProjectReference Include="..\src\ResultTypes\ResultTypes.csproj" />
   </ItemGroup>
 

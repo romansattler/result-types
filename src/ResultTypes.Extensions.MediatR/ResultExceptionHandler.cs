@@ -1,5 +1,6 @@
 ﻿using MediatR.Pipeline;
 using Microsoft.Extensions.Logging;
+using ResultTypes.Exceptions;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
@@ -21,9 +22,9 @@ internal class ResultExceptionHandler<TRequest, TResponse, TException>(ILogger<R
 
         var result = exception switch
         {
-            AggregateException a => HandleAggregateException(a),
+            AggregateValidationException a => HandleValidationException(a),
             ValidationException v => HandleValidationException(v),
-            KeyNotFoundException v => HandleKeyNotFoundException(v),
+            NotFoundException v => HandleNotFoundException(v),
             _ => HandleGenericException(exception)
         };
 
@@ -59,21 +60,19 @@ internal class ResultExceptionHandler<TRequest, TResponse, TException>(ILogger<R
         }
     }
 
-    private static Result HandleAggregateException(AggregateException exception)
+    private static Result HandleValidationException(AggregateValidationException exception)
     {
-        return exception.InnerExceptions.All(e => e is ValidationException)
-            ? HandleValidationException(exception.InnerExceptions.Cast<ValidationException>().ToArray())
-            : HandleGenericException(exception);
+        return Result.Invalid(exception.InnerExceptions.Select(e => e.ValidationResult).ToArray());
     }
 
-    private static Result HandleValidationException(params ValidationException[] exceptions)
+    private static Result HandleValidationException(ValidationException exception)
     {
-        return Result.Invalid(exceptions.Select(e => e.ValidationResult).ToArray());
+        return Result.Invalid(exception.ValidationResult);
     }
 
-    private static Result HandleKeyNotFoundException(KeyNotFoundException _)
+    private static Result HandleNotFoundException(NotFoundException exception)
     {
-        return Result.NotFound();
+        return Result.NotFound(exception.Message);
     }
 
     private static Result HandleGenericException(Exception exception)

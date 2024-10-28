@@ -1,3 +1,3 @@
 ﻿#nullable enable
 ResultTypes.Extensions.MediatR.ServiceCollectionExtensions
-static ResultTypes.Extensions.MediatR.ServiceCollectionExtensions.AddResultPipelineBehavior(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static ResultTypes.Extensions.MediatR.ServiceCollectionExtensions.AddResultMediatRExceptionHandler(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
