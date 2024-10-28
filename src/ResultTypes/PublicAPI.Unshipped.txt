@@ -1,8 +1,19 @@
 ﻿#nullable enable
+ResultTypes.Exceptions.AggregateValidationException
+ResultTypes.Exceptions.AggregateValidationException.AggregateValidationException(System.Collections.Generic.IEnumerable<System.ComponentModel.DataAnnotations.ValidationException!>! validationExceptions) -> void
+ResultTypes.Exceptions.AggregateValidationException.InnerExceptions.get -> System.Collections.ObjectModel.ReadOnlyCollection<System.ComponentModel.DataAnnotations.ValidationException!>!
+ResultTypes.Exceptions.MissingValueException
+ResultTypes.Exceptions.MissingValueException.MissingValueException() -> void
+ResultTypes.Exceptions.NotFoundException
+ResultTypes.Exceptions.NotFoundException.NotFoundException(string? message) -> void
+ResultTypes.Exceptions.UnknownErrorException
+ResultTypes.Exceptions.UnknownErrorException.UnknownErrorException() -> void
 ResultTypes.Result
 ResultTypes.Result<TValue>
-ResultTypes.Result<TValue>.AssertSuccess() -> void
+ResultTypes.Result<TValue>.EnsureHasValue() -> void
+ResultTypes.Result<TValue>.EnsureSuccess() -> void
 ResultTypes.Result<TValue>.Exception.get -> System.Exception?
+ResultTypes.Result<TValue>.HasValue.get -> bool
 ResultTypes.Result<TValue>.Id.get -> object?
 ResultTypes.Result<TValue>.IsSuccess.get -> bool
 ResultTypes.Result<TValue>.Status.get -> ResultTypes.ResultStatus
@@ -20,9 +31,9 @@ static ResultTypes.Result.Created<TId>(TId id) -> ResultTypes.Result!
 static ResultTypes.Result.Error(System.Exception! exception) -> ResultTypes.Result!
 static ResultTypes.Result.Invalid(params System.ComponentModel.DataAnnotations.ValidationResult![]! validationErrors) -> ResultTypes.Result!
 static ResultTypes.Result.NoContent() -> ResultTypes.Result!
-static ResultTypes.Result.NotFound() -> ResultTypes.Result!
+static ResultTypes.Result.NotFound(string? message = null) -> ResultTypes.Result!
 static ResultTypes.Result.Ok<TValue>(TValue value) -> ResultTypes.Result<TValue>!
-static ResultTypes.Result<TValue>.FromEmptyResult(ResultTypes.Result! result) -> ResultTypes.Result<TValue?>!
+static ResultTypes.Result<TValue>.FromUntypedResult(ResultTypes.Result! result) -> ResultTypes.Result<TValue?>!
 static ResultTypes.Result<TValue>.implicit operator ResultTypes.Result<TValue>!(TValue value) -> ResultTypes.Result<TValue>!
 static ResultTypes.Result<TValue>.implicit operator ResultTypes.Result<TValue?>!(ResultTypes.Result! result) -> ResultTypes.Result<TValue?>!
 static ResultTypes.Unit.Instance.get -> ResultTypes.Unit!

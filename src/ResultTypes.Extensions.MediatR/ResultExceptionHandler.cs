@@ -30,7 +30,7 @@ internal class ResultExceptionHandler<TRequest, TResponse, TException>(ILogger<R
         if (genericArgument is not null)
         {
             var converter = typeof(Result<>).MakeGenericType(genericArgument)
-                .GetMethod(nameof(Result.FromEmptyResult), BindingFlags.Public | BindingFlags.Static)
+                .GetMethod(nameof(Result.FromUntypedResult), BindingFlags.Public | BindingFlags.Static)
                 ?? throw new InvalidOperationException();
 
             var convertedResult = converter.Invoke(null, [result])!;
