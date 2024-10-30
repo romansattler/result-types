@@ -21,7 +21,7 @@ public record class Result<TValue>
     {
         return new()
         {
-            Status = ResultStatus.Ok,
+            Status = ResultStatus.Success,
             Value = value
         };
     }
@@ -37,7 +37,7 @@ public record class Result<TValue>
     public Exception? Exception { get; private protected init; }
     private ExceptionDispatchInfo? ExceptionDispatchInfo => Exception is not null ? ExceptionDispatchInfo.Capture(Exception) : null;
     public ValidationResult[]? ValidationErrors { get; private protected init; }
-    public bool IsSuccess => Status is ResultStatus.Ok or ResultStatus.Created;
+    public bool IsSuccess => Status is ResultStatus.Success or ResultStatus.Created;
 
     [MemberNotNullWhen(true, nameof(Value))]
     public bool HasValue => IsSuccess && Value is not Unit && Value != null;
@@ -79,7 +79,7 @@ public record class Result<TValue>
         {
             { IsSuccess: true } => new()
             {
-                Status = ResultStatus.Ok,
+                Status = ResultStatus.Success,
                 Value = default
             },
             _ => new()
@@ -92,5 +92,5 @@ public record class Result<TValue>
     }
 
     public static implicit operator Result<TValue?>(Result result) => FromUntypedResult(result);
-    public static implicit operator Result<TValue>(TValue value) => Result.Ok(value);
+    public static implicit operator Result<TValue>(TValue value) => Result.Success(value);
 }

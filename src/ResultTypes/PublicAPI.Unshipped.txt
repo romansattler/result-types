@@ -24,15 +24,15 @@ ResultTypes.ResultStatus.Created = 1 -> ResultTypes.ResultStatus
 ResultTypes.ResultStatus.Error = 4 -> ResultTypes.ResultStatus
 ResultTypes.ResultStatus.Invalid = 2 -> ResultTypes.ResultStatus
 ResultTypes.ResultStatus.NotFound = 3 -> ResultTypes.ResultStatus
-ResultTypes.ResultStatus.Ok = 0 -> ResultTypes.ResultStatus
+ResultTypes.ResultStatus.Success = 0 -> ResultTypes.ResultStatus
 ResultTypes.Unit
 static ResultTypes.Result.Created<TId, TValue>(TId id, TValue value) -> ResultTypes.Result<TValue>!
 static ResultTypes.Result.Created<TId>(TId id) -> ResultTypes.Result!
 static ResultTypes.Result.Error(System.Exception! exception) -> ResultTypes.Result!
 static ResultTypes.Result.Invalid(params System.ComponentModel.DataAnnotations.ValidationResult![]! validationErrors) -> ResultTypes.Result!
-static ResultTypes.Result.NoContent() -> ResultTypes.Result!
 static ResultTypes.Result.NotFound(string? message = null) -> ResultTypes.Result!
-static ResultTypes.Result.Ok<TValue>(TValue value) -> ResultTypes.Result<TValue>!
+static ResultTypes.Result.Success() -> ResultTypes.Result!
+static ResultTypes.Result.Success<TValue>(TValue value) -> ResultTypes.Result<TValue>!
 static ResultTypes.Result<TValue>.FromUntypedResult(ResultTypes.Result! result) -> ResultTypes.Result<TValue?>!
 static ResultTypes.Result<TValue>.implicit operator ResultTypes.Result<TValue>!(TValue value) -> ResultTypes.Result<TValue>!
 static ResultTypes.Result<TValue>.implicit operator ResultTypes.Result<TValue?>!(ResultTypes.Result! result) -> ResultTypes.Result<TValue?>!

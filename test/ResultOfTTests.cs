@@ -29,21 +29,21 @@ public sealed class ResultOfTTests
     }
 
     [Fact]
-    public void EnsureSuccess_ForOkResult_DoesNotThrow()
+    public void EnsureSuccess_ForSuccessResult_DoesNotThrow()
     {
         // Arrange
         var value = new TestValue();
-        var result = Result.Ok(value);
+        var result = Result.Success(value);
 
         // Act
         result.EnsureSuccess();
     }
 
     [Fact]
-    public void EnsureSuccess_ForNoContentResult_DoesNotThrow()
+    public void EnsureSuccess_ForSuccessWithoutValueResult_DoesNotThrow()
     {
         // Arrange
-        var result = Result.NoContent();
+        var result = Result.Success();
 
         // Act
         result.EnsureSuccess();
@@ -121,21 +121,21 @@ public sealed class ResultOfTTests
     }
 
     [Fact]
-    public void EnsureHasValue_ForOkResult_DoesNotThrow()
+    public void EnsureHasValue_ForSuccessResult_DoesNotThrow()
     {
         // Arrange
         var value = new TestValue();
-        var result = Result.Ok(value);
+        var result = Result.Success(value);
 
         // Act
         result.EnsureHasValue();
     }
 
     [Fact]
-    public void EnsureHasValue_ForNoContentResult_DoesNotThrow()
+    public void EnsureHasValue_ForSuccessWithoutValueResult_DoesNotThrow()
     {
         // Arrange
-        var result = Result.NoContent();
+        var result = Result.Success();
 
         // Act
         void Act() => result.EnsureHasValue();
@@ -193,7 +193,7 @@ public sealed class ResultOfTTests
     public void FromUntypedResult_ReturnsValidResult()
     {
         // Arrange
-        var untypedResult = Result.NoContent();
+        var untypedResult = Result.Success();
 
         // Act
         var result = Result<TestValue>.FromUntypedResult(untypedResult);
@@ -203,7 +203,7 @@ public sealed class ResultOfTTests
             () => Assert.IsType<Result<TestValue?>>(result),
             () => Assert.True(result.IsSuccess),
             () => Assert.False(result.HasValue),
-            () => Assert.Equal(ResultStatus.Ok, result.Status),
+            () => Assert.Equal(ResultStatus.Success, result.Status),
             () => Assert.Null(result.Id),
             () => Assert.Null(result.Value),
             () => Assert.Null(result.Exception),
@@ -215,7 +215,7 @@ public sealed class ResultOfTTests
     public void Implicit_FromUntypedResult_StateUnderTest_ExpectedBehavior()
     {
         // Arrange
-        var untypedResult = Result.NoContent();
+        var untypedResult = Result.Success();
 
         // Act
         var result = (Result<TestValue?>)untypedResult;
@@ -225,7 +225,7 @@ public sealed class ResultOfTTests
             () => Assert.IsType<Result<TestValue?>>(result),
             () => Assert.True(result.IsSuccess),
             () => Assert.False(result.HasValue),
-            () => Assert.Equal(ResultStatus.Ok, result.Status),
+            () => Assert.Equal(ResultStatus.Success, result.Status),
             () => Assert.Null(result.Id),
             () => Assert.Null(result.Value),
             () => Assert.Null(result.Exception),
@@ -247,7 +247,7 @@ public sealed class ResultOfTTests
             () => Assert.IsType<Result<TestValue>>(result),
             () => Assert.True(result.IsSuccess),
             () => Assert.True(result.HasValue),
-            () => Assert.Equal(ResultStatus.Ok, result.Status),
+            () => Assert.Equal(ResultStatus.Success, result.Status),
             () => Assert.Null(result.Id),
             () => Assert.Equal(value, result.Value),
             () => Assert.Null(result.Exception),

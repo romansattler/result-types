@@ -24,18 +24,18 @@ public sealed record class Result : Result<Unit>
         };
     }
 
-    public static Result<TValue> Ok<TValue>(TValue value)
+    public static Result<TValue> Success<TValue>(TValue value)
     {
         ArgumentNullException.ThrowIfNull(value);
 
         return Result<TValue>.Ok(value);
     }
 
-    public static Result NoContent()
+    public static Result Success()
     {
         return new()
         {
-            Status = ResultStatus.Ok
+            Status = ResultStatus.Success
         };
     }
 

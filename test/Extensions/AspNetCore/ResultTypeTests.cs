@@ -5,11 +5,11 @@ namespace ResultTypes.Tests.Extensions.AspNetCore;
 public class ResultTypeTests
 {
     [Fact]
-    public void Implicit_FromOkResult_ReturnsOkResultType()
+    public void Implicit_FromSuccessWithValueResult_ReturnsOkResultType()
     {
         // Arrange
         var value = new TestValue();
-        var result = Result.Ok(value);
+        var result = Result.Success(value);
 
         // Act
         var resultType = (ResultType.Ok<TestValue>)result;
@@ -19,10 +19,10 @@ public class ResultTypeTests
     }
 
     [Fact]
-    public void Implicit_FromNoContentResult_ReturnsOkType()
+    public void Implicit_FromSuccessWithoutValueResult_ReturnsNoContentType()
     {
         // Arrange
-        var result = Result.NoContent();
+        var result = Result.Success();
 
         // Act
         var resultType = (ResultType.NoContent)result;
@@ -32,11 +32,11 @@ public class ResultTypeTests
     }
 
     [Fact]
-    public void Implicit_FromOkCollectionResult_ReturnsCollectionType()
+    public void Implicit_FromSuccessOfEnumerableResult_ReturnsCollectionType()
     {
         // Arrange
         IEnumerable<TestValue> values = [new(), new()];
-        var result = Result.Ok(values);
+        var result = Result.Success(values);
 
         // Act
         var resultType = (ResultType.Collection<TestValue>)result;

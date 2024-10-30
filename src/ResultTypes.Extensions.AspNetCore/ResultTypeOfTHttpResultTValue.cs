@@ -33,10 +33,10 @@ public class ResultType<TSuccessResult, TValue>(Result<TValue> result) : IResult
     {
         return result switch
         {
-            { Status: ResultStatus.Ok, Value: IEnumerable<object>[] } => TypedResults.NoContent(),
-            { Status: ResultStatus.Ok, Value: Unit } => TypedResults.NoContent(),
-            { Status: ResultStatus.Ok, Value: { } value } => TypedResults.Ok(value),
-            { Status: ResultStatus.Ok } => TypedResults.NoContent(),
+            { Status: ResultStatus.Success, Value: IEnumerable<object>[] } => TypedResults.NoContent(),
+            { Status: ResultStatus.Success, Value: Unit } => TypedResults.NoContent(),
+            { Status: ResultStatus.Success, Value: { } value } => TypedResults.Ok(value),
+            { Status: ResultStatus.Success } => TypedResults.NoContent(),
             { Status: ResultStatus.Created, Id: { } id, Value: var value } => TypedResults.Created(new Uri($"{id}", UriKind.Relative), value),
             { Status: ResultStatus.Created, Value: var value } => TypedResults.Created((string?)null, value),
             { Status: ResultStatus.Invalid, ValidationErrors: { Length: > 0 } validationErrors } => TypedResults.ValidationProblem(MapValidationResults(validationErrors)),

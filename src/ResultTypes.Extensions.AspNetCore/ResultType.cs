@@ -1,13 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Http.Metadata;
 using HttpResults = Microsoft.AspNetCore.Http.HttpResults;
 
 namespace ResultTypes.Extensions.AspNetCore;
-
-public class ResultType<TSuccessResult>(Result<Unit> result) : ResultType<TSuccessResult, Unit>(result)
-    where TSuccessResult : IResult, IEndpointMetadataProvider
-{
-}
 
 public static class ResultType
 {

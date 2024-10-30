@@ -2,7 +2,7 @@
 
 public enum ResultStatus
 {
-    Ok,
+    Success,
     Created,
     Invalid,
     NotFound,

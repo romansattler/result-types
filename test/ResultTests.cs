@@ -81,20 +81,20 @@ public sealed class ResultTests
     }
 
     [Fact]
-    public void Ok_ForValidValue_ReturnsValidResult()
+    public void Success_ForValidValue_ReturnsValidResult()
     {
         // Arrange
         var value = new TestValue();
 
         // Act
-        var result = Result.Ok(value);
+        var result = Result.Success(value);
 
         // Assert
         Assert.Multiple(
             () => Assert.IsType<Result<TestValue>>(result),
             () => Assert.True(result.IsSuccess),
             () => Assert.True(result.HasValue),
-            () => Assert.Equal(ResultStatus.Ok, result.Status),
+            () => Assert.Equal(ResultStatus.Success, result.Status),
             () => Assert.Null(result.Id),
             () => Assert.Equal(value, result.Value),
             () => Assert.Null(result.Exception),
@@ -103,27 +103,27 @@ public sealed class ResultTests
     }
 
     [Fact]
-    public void Ok_WithNullValue_ThrowsArgumentNullException()
+    public void Success_WithNullValue_ThrowsArgumentNullException()
     {
         // Act
-        static Result<TestValue> Act() => Result.Ok<TestValue>(null!);
+        static Result<TestValue> Act() => Result.Success<TestValue>(null!);
 
         // Assert
         Assert.Throws<ArgumentNullException>(Act);
     }
 
     [Fact]
-    public void NoContent_ReturnValidResult()
+    public void Success_ReturnValidResult()
     {
         // Act
-        var result = Result.NoContent();
+        var result = Result.Success();
 
         // Assert
         Assert.Multiple(
             () => Assert.IsType<Result>(result),
             () => Assert.True(result.IsSuccess),
             () => Assert.False(result.HasValue),
-            () => Assert.Equal(ResultStatus.Ok, result.Status),
+            () => Assert.Equal(ResultStatus.Success, result.Status),
             () => Assert.Null(result.Id),
             () => Assert.Equal(Unit.Instance, result.Value),
             () => Assert.Null(result.Exception),

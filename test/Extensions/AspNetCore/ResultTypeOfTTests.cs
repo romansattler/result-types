@@ -10,7 +10,7 @@ public class ResultTypeOfTTests
     {
         // Arrange
         var value = new TestValue();
-        var result = Result.Ok(value);
+        var result = Result.Success(value);
 
         // Act
         var resultType = new ResultType.Ok<TestValue>(result);
@@ -27,7 +27,7 @@ public class ResultTypeOfTTests
     public async Task OkResultType_WithoutValue_ReturnsValidResultType()
     {
         // Arrange
-        var result = Result.NoContent();
+        var result = Result.Success();
 
         // Act
         var resultType = new ResultType.Ok<Unit>(result);
@@ -44,7 +44,7 @@ public class ResultTypeOfTTests
     public async Task NoContentResultType_WithoutValue_ReturnsValidResultType()
     {
         // Arrange
-        var result = Result.NoContent();
+        var result = Result.Success();
 
         // Act
         var resultType = new ResultType.NoContent(result);
@@ -99,7 +99,7 @@ public class ResultTypeOfTTests
     {
         // Arrange
         IEnumerable<TestValue> values = [new(), new()];
-        var result = Result.Ok(values);
+        var result = Result.Success(values);
 
         // Act
         var resultType = new ResultType.Collection<TestValue>(result);
@@ -117,7 +117,7 @@ public class ResultTypeOfTTests
     {
         // Arrange
         IEnumerable<TestValue> values = [];
-        var result = Result.Ok(values);
+        var result = Result.Success(values);
 
         // Act
         var resultType = new ResultType.Collection<TestValue>(result);
@@ -134,7 +134,7 @@ public class ResultTypeOfTTests
     public async Task CollectionResultType_WithoutValue_ReturnsValidResultType()
     {
         // Arrange
-        var result = (Result<IEnumerable<TestValue>?>)Result.NoContent();
+        var result = (Result<IEnumerable<TestValue>?>)Result.Success();
 
         // Act
         var resultType = new ResultType.Collection<TestValue>(result!);
